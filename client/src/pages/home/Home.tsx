@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
-import { Sparkles, Download, ExternalLink, Code, Terminal, Cpu, Database, Globe, Zap } from "lucide-react"
+import { Sparkles, Download, ExternalLink, Code, Terminal, Cpu, Database, Globe, Zap} from "lucide-react"
 import SkillCard from '@/components/Skills/SkillCard'
 import TechStack from '@/components/Techstak/TechStack'
 import Projects from '@/components/Projects/Projects'
+import Timeline from '@/components/Timeline/Timeline'
+import Contact from '@/components/Contact/Contact'
 
 const Home: React.FC = () => {
     const [isLoaded, setIsLoaded] = useState<boolean>(false)
@@ -206,10 +208,10 @@ const Home: React.FC = () => {
       </main>
 
       <SkillCard/>
-
-   
-        <TechStack/>
+      <TechStack/>
       <Projects/>
+      <Timeline/>
+      <Contact/>
 
       </>
   )
