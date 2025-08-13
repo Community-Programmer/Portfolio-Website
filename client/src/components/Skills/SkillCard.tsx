@@ -50,7 +50,7 @@ const SkillCard = () => {
                   className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-200 hover:-translate-y-2"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="w-20 h-20 mb-4 p-3 bg-purple-50 rounded-xl group-hover:bg-purple-100 transition-colors duration-300">
+                    <div className="w-22 h-22 mb-4 p-3 bg-purple-50 rounded-xl group-hover:bg-purple-100 transition-colors duration-300">
                       <img src={`data:image/svg+xml;base64,${skill.svgData}`} alt="web" />
                     </div>
 

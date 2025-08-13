@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Sparkles, Download, ExternalLink, Code, Terminal, Cpu, Database, Globe, Zap } from "lucide-react"
 import SkillCard from '@/components/Skills/SkillCard'
 import TechStack from '@/components/Techstak/TechStack'
+import Projects from '@/components/Projects/Projects'
 
 const Home: React.FC = () => {
     const [isLoaded, setIsLoaded] = useState<boolean>(false)
@@ -208,6 +209,7 @@ const Home: React.FC = () => {
 
    
         <TechStack/>
+      <Projects/>
 
       </>
   )
