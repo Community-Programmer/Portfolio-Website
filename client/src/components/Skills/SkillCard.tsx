@@ -37,7 +37,7 @@ const SkillCard = () => {
               experience and continuous learning.
             </p>
           </div>
-
+          
           {loading ? (
             <div className="text-center text-lg text-gray-500">Loading...</div>
           ) : error ? (
@@ -52,8 +52,9 @@ const SkillCard = () => {
                   <div className="flex flex-col items-center text-center">
                     <div className="w-22 h-22 mb-4 p-3 bg-purple-50 rounded-xl group-hover:bg-purple-100 transition-colors duration-300">
                       <img src={`data:image/svg+xml;base64,${skill.svgData}`} alt="web" />
+                      
                     </div>
-
+                   
                     <h3 className="text-xl font-semibold text-gray-900 mb-3 font-sans">{skill.title}</h3>
 
                     <p className="text-gray-600 text-sm leading-relaxed">{skill.description}</p>
