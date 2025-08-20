@@ -51,3 +51,26 @@ model Skill {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model Project {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  description  String
+  technologies String[]
+  images       String[]
+  liveUrl      String
+  githubUrl    String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model TechStack {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String   @unique
+  category    String
+  icon        String  
+  description String
+  projects    String[] 
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
