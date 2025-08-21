@@ -1,5 +1,49 @@
 import React from 'react'
 
+
+const timelineData = [
+  {
+    date: "2023 - Present",
+    title: "Senior Full Stack Developer",
+    company: "Tech Solutions Inc.",
+    description: "Leading development of enterprise web applications using React, Node.js, and cloud technologies. Mentoring junior developers and architecting scalable solutions for high-traffic applications.",
+    tags: ["React", "Node.js", "AWS", "TypeScript"],
+    iconColor: "green-500",
+    dotColor: "purple-500",
+    side: "left"
+  },
+  {
+    date: "2021 - 2023",
+    title: "Full Stack Developer",
+    company: "Digital Innovations Ltd.",
+    description: "Developed and maintained multiple client projects using modern web technologies. Collaborated with design teams to create responsive, user-friendly interfaces and robust backend systems.",
+    tags: ["JavaScript", "Python", "MongoDB", "Docker"],
+    iconColor: "blue-500",
+    dotColor: "purple-400",
+    side: "right"
+  },
+  {
+    date: "2020 - 2021",
+    title: "Junior Web Developer",
+    company: "StartUp Ventures",
+    description: "Started my professional journey building responsive websites and learning modern development practices. Gained experience in version control, agile methodologies, and collaborative development.",
+    tags: ["HTML/CSS", "JavaScript", "Git", "MySQL"],
+    iconColor: "orange-500",
+    dotColor: "purple-300",
+    side: "left"
+  },
+  {
+    date: "2018 - 2020",
+    title: "Computer Science Graduate",
+    company: "University of Technology",
+    description: "Completed Bachelor's degree in Computer Science with focus on software engineering and web technologies. Built strong foundation in programming fundamentals, data structures, and software development principles.",
+    tags: ["C++", "Java", "Data Structures", "Algorithms"],
+    iconColor: "gray-500",
+    dotColor: "purple-200",
+    side: "right"
+  }
+];
+
 const Timeline = () => {
   return (
     <>
@@ -13,7 +57,7 @@ const Timeline = () => {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 md:left-1/2 left-8 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-500 to-purple-300 rounded-full"></div>
+            <div className="absolute  md:left-1/2 left-8 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-[var(--portfolio-primary-500)] to-[var(--portfolio-primary-300)] rounded-full"></div>
 
             {/* Timeline Items */}
             <div className="space-y-12">
@@ -26,7 +70,7 @@ const Timeline = () => {
                       <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-2">Senior Full Stack Developer</h3>
-                    <p className="text-purple-600 font-semibold mb-3">Tech Solutions Inc.</p>
+                    <p className="text-[var(--portfolio-primary-600)] font-semibold mb-3">Tech Solutions Inc.</p>
                     <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                       Leading development of enterprise web applications using React, Node.js, and cloud technologies.
                       Mentoring junior developers and architecting scalable solutions for high-traffic applications.

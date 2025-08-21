@@ -64,7 +64,7 @@ import React, { useState } from 'react'
   ]
 
 
-const Projects = () => {
+const Projects: React.FC = () => {
 
     const [currentSlides, setCurrentSlides] = useState<{ [key: string]: number }>({})
 
@@ -94,7 +94,7 @@ const Projects = () => {
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-gray-900 mb-6 font-serif">Featured Projects</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">Showcase of My Best Work</p>
-            <p className="text-lg font-medium" style={{ color: "#715693" }}>
+            <p className="text-lg font-medium text-[var(--portfolio-primary)]" >
               Transforming ideas into digital reality
             </p>
           </div>
@@ -105,7 +105,7 @@ const Projects = () => {
               return (
                 <div
                   key={project.id}
-                  className="group bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 hover:border-purple-200 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
+                  className="group bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 hover:border-[var(--portfolio-primary-200)] transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
                 >
                   <div className="relative overflow-hidden">
                     <div className="relative h-48">
@@ -172,8 +172,7 @@ const Projects = () => {
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 text-xs font-medium rounded-full border"
-                          style={{ color: "#715693", borderColor: "#715693", backgroundColor: "#f8f4ff" }}
+                          className="px-2 py-1 text-xs font-medium rounded-full border border-[var(--portfolio-primary)] text-[var(--portfolio-primary)] bg-[var(--portfolio-primary-50)]"
                         >
                           {tech}
                         </span>
@@ -182,8 +181,7 @@ const Projects = () => {
                     <div className="flex gap-3 mt-auto">
                       <a
                         href={project.liveUrl}
-                        className="flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-sm"
-                        style={{ background: "linear-gradient(135deg, #715693, #6b5b8a)" }}
+                        className="flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-sm bg-[var(--portfolio-primary)]"
                       >
                         <span>Live Demo</span>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -197,8 +195,7 @@ const Projects = () => {
                       </a>
                       <a
                         href={project.githubUrl}
-                        className="flex items-center gap-2 px-4 py-2 rounded-full font-semibold border-2 transition-all duration-300 hover:scale-105 text-sm"
-                        style={{ color: "#715693", borderColor: "#715693" }}
+                        className="flex items-center gap-2 px-4 py-2 rounded-full font-semibold border-2 transition-all duration-300 hover:scale-105 text-sm text-[var(--portfolio-primary)] border-[var(--portfolio-primary)]"
                       >
                         <span>GitHub</span>
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -218,8 +215,7 @@ const Projects = () => {
             </p>
             <a
               href="#"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-lg text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-              style={{ background: "linear-gradient(135deg, #715693, #6b5b8a)" }}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-lg text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl bg-[linear-gradient(135deg,_var(--portfolio-primary),_var(--portfolio-muted))]"
             >
               <span>View All Projects</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

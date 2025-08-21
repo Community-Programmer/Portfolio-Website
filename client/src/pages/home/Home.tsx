@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import type { AppDispatch, RootState } from '@/store/store'
 import CtaButtons from '@/components/HeroSection/CtaButtons'
 import DynamicIcon from '@/components/DynamicIcon/DynamicIcon'
+import axios from 'axios'
 
 const Home: React.FC = () => {
     const [isLoaded, setIsLoaded] = useState<boolean>(false)
@@ -20,17 +21,30 @@ const Home: React.FC = () => {
     dispatch(fetchHomeContent());
     setIsLoaded(true);
   }, [])
+  
+useEffect(() => {
+  axios.get('http://127.0.0.1:3000/api/v1/theme')
+    .then((res) => {
+      const theme = res.data;
+      const root = document.documentElement;
 
-  // utils/loadIcon.js
-  const loadLucideIcon = async (name: string) => {
-    try {
-      const mod = await import(`lucide-react`);
-      return (mod as Record<string, unknown>)[name] || null;
-    } catch {
-      return null;
-    }
-  };
-
+      root.style.setProperty('--portfolio-primary', theme.portfolioPrimary);
+      root.style.setProperty('--portfolio-accent', theme.portfolioAccent);
+      root.style.setProperty('--portfolio-muted', theme.portfolioMuted);
+      root.style.setProperty('--portfolio-primary-50', theme.portfolioPrimary50);
+      root.style.setProperty('--portfolio-primary-100', theme.portfolioPrimary100);
+      root.style.setProperty('--portfolio-primary-200', theme.portfolioPrimary200);
+      root.style.setProperty('--portfolio-primary-300', theme.portfolioPrimary300);
+      root.style.setProperty('--portfolio-primary-400', theme.portfolioPrimary400);
+      root.style.setProperty('--portfolio-primary-500', theme.portfolioPrimary500);
+      root.style.setProperty('--portfolio-primary-600', theme.portfolioPrimary600);
+      root.style.setProperty('--portfolio-primary-lighter', theme.portfolioPrimaryLighter);
+      root.style.setProperty('--portfolio-primary-lightest', theme.portfolioPrimaryLightest);
+    })
+    .catch((err) => {
+      console.error('Failed to load theme:', err);
+    });
+}, []);
 
   const { hero } = useSelector((state: RootState) => state.home);
   
@@ -38,7 +52,7 @@ const Home: React.FC = () => {
     <>
     <main
         id="home"
-        className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-purple-100/50 relative overflow-hidden"
+        className="min-h-screen bg-gradient-to-br from-white via-[var(--portfolio-primary-lighter)] to-[var(--portfolio-primary-lightest)] relative overflow-hidden"
       >
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden">

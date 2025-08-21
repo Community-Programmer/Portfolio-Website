@@ -1,30 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
+import type { RootState } from '@/store/store';
 
 
-type Skill = {
-  _id: string;
-  title: string;
-  description: string;
-  svgData: string;
-};
 
-const SkillCard = () => {
-  const [skills, setSkills] = useState<Skill[]>([]);
-  const [loading, setLoading] = useState(true);
+const SkillCard: React.FC = () => {
+
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/data/getskill')
-      .then((res) => {
-        setSkills(res.data || []);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError('Failed to load skills');
-        setLoading(false);
-      });
-  }, []);
+ const { skills } = useSelector((state: RootState) => state.home);
 
   return (
     
@@ -37,7 +22,7 @@ const SkillCard = () => {
               experience and continuous learning.
             </p>
           </div>
-          
+
           {loading ? (
             <div className="text-center text-lg text-gray-500">Loading...</div>
           ) : error ? (
@@ -46,14 +31,14 @@ const SkillCard = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {skills?.map((skill) => (
                 <div
-                  key={skill._id}
-                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-200 hover:-translate-y-2"
+                  key={skill.id}
+                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[var(--portfolio-primary-200)] hover:-translate-y-2"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="w-22 h-22 mb-4 p-3 bg-purple-50 rounded-xl group-hover:bg-purple-100 transition-colors duration-300">
-                      <img src={`data:image/svg+xml;base64,${skill.svgData}`} alt="web" />
-                      
-                    </div>
+                  <div
+                    className="w-22 h-22 mb-4 p-3 bg-[var(--portfolio-primary-50)] rounded-xl group-hover:bg-[var(--portfolio-primary-100)] transition-colors duration-300 text-[var(--portfolio-primary)]"
+                    dangerouslySetInnerHTML={{ __html: skill.svgData }}
+                  />
                    
                     <h3 className="text-xl font-semibold text-gray-900 mb-3 font-sans">{skill.title}</h3>
 
