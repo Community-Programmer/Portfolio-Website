@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Brand Section */}
             <div className="md:col-span-2">
-              <h3 className="text-2xl font-bold text-foreground mb-4 font-serif">Sarthak Patel</h3>
+              <h3 className="text-2xl font-bold text-[var(--portfolio-primary)] mb-4 font-serif">Sarthak Patel</h3>
               <p className="text-muted-foreground mb-6 max-w-md">
                 Full-stack developer passionate about creating innovative web solutions and bringing ideas to life
                 through code.

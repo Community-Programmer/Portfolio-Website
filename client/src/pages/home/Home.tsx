@@ -52,7 +52,7 @@ useEffect(() => {
     <>
     <main
         id="home"
-        className="min-h-screen bg-gradient-to-br from-white via-[var(--portfolio-primary-lighter)] to-[var(--portfolio-primary-lightest)] relative overflow-hidden"
+        className="min-h-screen bg-gradient-to-br from-slate-50 to-[var(--portfolio-primary-50)]  relative overflow-hidden"
       >
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden">

@@ -20,8 +20,7 @@ const Contact = () => {
                 {/* Email */}
                 <div className="flex items-center gap-4 mb-6 p-4 bg-muted/50 rounded-xl hover:bg-muted transition-colors duration-300">
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: "#715693" }}
+                    className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--portfolio-primary)]"
                   >
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
@@ -36,8 +35,7 @@ const Contact = () => {
                     <p className="text-sm text-muted-foreground">Email</p>
                     <a
                       href="mailto:sarthak.patel@example.com"
-                      className="text-foreground font-semibold hover:opacity-80 transition-opacity"
-                      style={{ color: "#715693" }}
+                      className=" font-semibold hover:opacity-80 transition-opacity text-[var(--portfolio-primary-600)]"
                     >
                       sarthak.patel@example.com
                     </a>
@@ -47,8 +45,7 @@ const Contact = () => {
                 {/* Phone */}
                 <div className="flex items-center gap-4 mb-6 p-4 bg-muted/50 rounded-xl hover:bg-muted transition-colors duration-300">
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: "#715693" }}
+                    className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--portfolio-primary)]"
                   >
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
@@ -63,8 +60,8 @@ const Contact = () => {
                     <p className="text-sm text-muted-foreground">Phone</p>
                     <a
                       href="tel:+1234567890"
-                      className="text-foreground font-semibold hover:opacity-80 transition-opacity"
-                      style={{ color: "#715693" }}
+                      className="text-[var(--portfolio-primary-600)] font-semibold hover:opacity-80 transition-opacity"
+
                     >
                       +1 (234) 567-8900
                     </a>
@@ -74,8 +71,7 @@ const Contact = () => {
                 {/* Location */}
                 <div className="flex items-center gap-4 mb-8 p-4 bg-muted/50 rounded-xl">
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: "#715693" }}
+                    className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--portfolio-primary)]"
                   >
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
@@ -94,7 +90,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-foreground font-semibold">San Francisco, CA</p>
+                    <p className="text-[var(--portfolio-primary-600)] font-semibold">San Francisco, CA</p>
                   </div>
                 </div>
 
@@ -205,8 +201,8 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl mt-auto"
-                    style={{ background: "linear-gradient(135deg, #715693, #6b5b8a)" }}
+                    className="w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl mt-auto bg-[linear-gradient(135deg,_var(--portfolio-primary),_var(--portfolio-muted))]"
+  
                   >
                     Send Message
                   </button>
@@ -289,7 +285,7 @@ const Contact = () => {
                   </div>
                   <h4 className="text-lg font-semibold text-foreground mb-2">Mentoring</h4>
                   <p className="text-muted-foreground text-sm mb-4">Happy to help aspiring developers learn and grow</p>
-                  <a href="#" className="text-purple-600 font-medium hover:text-purple-700 transition-colors">
+                  <a href="#" className="text-[var(--portfolio-primary-600)] font-medium hover:text-[var(--portfolio-primary-700)] transition-colors">
                     Learn More
                   </a>
                 </div>

@@ -2,53 +2,70 @@ import React from 'react'
 
 
 const timelineData = [
-  {
-    date: "2023 - Present",
-    title: "Senior Full Stack Developer",
-    company: "Tech Solutions Inc.",
-    description: "Leading development of enterprise web applications using React, Node.js, and cloud technologies. Mentoring junior developers and architecting scalable solutions for high-traffic applications.",
-    tags: ["React", "Node.js", "AWS", "TypeScript"],
-    iconColor: "green-500",
-    dotColor: "purple-500",
-    side: "left"
-  },
-  {
-    date: "2021 - 2023",
-    title: "Full Stack Developer",
-    company: "Digital Innovations Ltd.",
-    description: "Developed and maintained multiple client projects using modern web technologies. Collaborated with design teams to create responsive, user-friendly interfaces and robust backend systems.",
-    tags: ["JavaScript", "Python", "MongoDB", "Docker"],
-    iconColor: "blue-500",
-    dotColor: "purple-400",
-    side: "right"
-  },
-  {
-    date: "2020 - 2021",
-    title: "Junior Web Developer",
-    company: "StartUp Ventures",
-    description: "Started my professional journey building responsive websites and learning modern development practices. Gained experience in version control, agile methodologies, and collaborative development.",
-    tags: ["HTML/CSS", "JavaScript", "Git", "MySQL"],
-    iconColor: "orange-500",
-    dotColor: "purple-300",
-    side: "left"
-  },
-  {
-    date: "2018 - 2020",
-    title: "Computer Science Graduate",
-    company: "University of Technology",
-    description: "Completed Bachelor's degree in Computer Science with focus on software engineering and web technologies. Built strong foundation in programming fundamentals, data structures, and software development principles.",
-    tags: ["C++", "Java", "Data Structures", "Algorithms"],
-    iconColor: "gray-500",
-    dotColor: "purple-200",
-    side: "right"
-  }
-];
+    {
+      id: 1,
+      period: "2023 - Present",
+      position: "Senior Full Stack Developer",
+      company: "Tech Solutions Inc.",
+      description:
+        "Leading development of enterprise web applications using React, Node.js, and cloud technologies. Mentoring junior developers and architecting scalable solutions for high-traffic applications.",
+      technologies: ["React", "Node.js", "AWS", "TypeScript"],
+      status: "current",
+      nodeColor: "bg-purple-500",
+      statusColor: "bg-green-500",
+      side: "left",
+    },
+    {
+      id: 2,
+      period: "2021 - 2023",
+      position: "Full Stack Developer",
+      company: "Digital Innovations Ltd.",
+      description:
+        "Developed and maintained multiple client projects using modern web technologies. Collaborated with design teams to create responsive, user-friendly interfaces and robust backend systems.",
+      technologies: ["JavaScript", "Python", "MongoDB", "Docker"],
+      status: "completed",
+      nodeColor: "bg-purple-400",
+      statusColor: "bg-blue-500",
+      side: "right",
+    },
+    {
+      id: 3,
+      period: "2020 - 2021",
+      position: "Junior Web Developer",
+      company: "StartUp Ventures",
+      description:
+        "Started my professional journey building responsive websites and learning modern development practices. Gained experience in version control, agile methodologies, and collaborative development.",
+      technologies: ["HTML/CSS", "JavaScript", "Git", "MySQL"],
+      status: "completed",
+      nodeColor: "bg-purple-300",
+      statusColor: "bg-orange-500",
+      side: "left",
+    },
+    {
+      id: 4,
+      period: "2018 - 2020",
+      position: "Computer Science Graduate",
+      company: "University of Technology",
+      description:
+        "Completed Bachelor's degree in Computer Science with focus on software engineering and web technologies. Built strong foundation in programming fundamentals, data structures, and software development principles.",
+      technologies: ["C++", "Java", "Data Structures", "Algorithms"],
+      status: "education",
+      nodeColor: "bg-purple-200",
+      statusColor: "bg-gray-500",
+      side: "right",
+    },
+  ]
 
-const Timeline = () => {
+
+const Timeline: React.FC = () => {
   return (
     <>
-{/* Timeline / Experience Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-slate-50 to-purple-50 relative overflow-hidden">
+      <section className="py-20 px-4 bg-gradient-to-br from-slate-50 to-[var(--portfolio-primary-50)] relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-[var(--portfolio-primary-300)] rounded-full animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-24 h-24 bg-[var(--portfolio-primary-400)] rounded-full animate-bounce"></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-[var(--portfolio-primary-200)] rounded-full animate-ping"></div>
+        </div>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4 font-serif">Career Timeline</h2>
@@ -57,133 +74,79 @@ const Timeline = () => {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute  md:left-1/2 left-8 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-[var(--portfolio-primary-500)] to-[var(--portfolio-primary-300)] rounded-full"></div>
+            <div className="absolute md:left-1/2 left-8 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-[var(--portfolio-primary-500)] to-[var(--portfolio-primary-300)] rounded-full"></div>
 
-            {/* Timeline Items */}
             <div className="space-y-12">
-              {/* Current Position */}
-              <div className="relative flex md:items-center">
-                <div className="flex-1 md:pr-8 md:text-right pl-16 md:pl-0">
-                  <div className="bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
-                    <div className="flex items-center md:justify-end gap-3 mb-3">
-                      <span className="text-sm font-medium text-muted-foreground">2023 - Present</span>
-                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Senior Full Stack Developer</h3>
-                    <p className="text-[var(--portfolio-primary-600)] font-semibold mb-3">Tech Solutions Inc.</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      Leading development of enterprise web applications using React, Node.js, and cloud technologies.
-                      Mentoring junior developers and architecting scalable solutions for high-traffic applications.
-                    </p>
-                    <div className="flex flex-wrap gap-2 md:justify-end">
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">React</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">Node.js</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">AWS</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">TypeScript</span>
-                    </div>
+              {timelineData.map((item) => (
+                <div key={item.id} className="relative flex md:items-center">
+                  {/* Left side content for desktop alternating layout */}
+                  <div
+                    className={`flex-1 ${item.side === "left" ? "md:pr-8 md:text-right" : "md:pr-8 hidden md:block"} pl-16 md:pl-0`}
+                  >
+                    {item.side === "left" && (
+                      <div className="bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
+                        <div className="flex items-center md:justify-end gap-3 mb-3">
+                          <span className="text-sm font-medium text-muted-foreground">{item.period}</span>
+                          <div
+                            className={`w-3 h-3 ${item.statusColor} rounded-full ${item.status === "current" ? "animate-pulse" : ""}`}
+                          ></div>
+                        </div>
+                        <h3 className="text-xl font-bold text-foreground mb-2">{item.position}</h3>
+                        <p className="text-[var(--portfolio-primary-600)] font-semibold mb-3">{item.company}</p>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.description}</p>
+                        <div className="flex flex-wrap gap-2 md:justify-end">
+                          {item.technologies.map((tech, techIndex) => (
+                            <span
+                              key={techIndex}
+                              className="px-2 py-1 text-xs bg-[var(--portfolio-primary-100)] text-[var(--portfolio-primary-700)] rounded-full"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Timeline Node */}
+                  <div
+                    className={`absolute md:left-1/2 left-8 transform md:-translate-x-1/2 -translate-x-1/2 w-6 h-6 bg-[var(--portfolio-primary)] rounded-full border-4 border-white shadow-lg z-10`}
+                  ></div>
+
+                  {/* Right side content for desktop alternating layout */}
+                  <div
+                    className={`flex-1 ${item.side === "right" ? "md:pl-8" : "md:pl-8 hidden md:block"} pl-16 md:pl-8`}
+                  >
+                    {item.side === "right" && (
+                      <div className="bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div
+                            className={`w-3 h-3 ${item.statusColor} rounded-full ${item.status === "current" ? "animate-pulse" : ""}`}
+                          ></div>
+                          <span className="text-sm font-medium text-muted-foreground">{item.period}</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-foreground mb-2">{item.position}</h3>
+                        <p className="text-[var(--portfolio-primary-600)] font-semibold mb-3">{item.company}</p>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {item.technologies.map((tech, techIndex) => (
+                            <span
+                              key={techIndex}
+                              className="px-2 py-1 text-xs bg-[var(--portfolio-primary-100)] text-[var(--portfolio-primary-700)] rounded-full"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-
-                {/* Timeline Node */}
-                <div className="absolute left-1/2 md:left-1/2 left-8 transform md:-translate-x-1/2 -translate-x-1/2 w-6 h-6 bg-purple-500 rounded-full border-4 border-white shadow-lg z-10"></div>
-
-                <div className="flex-1 md:pl-8 hidden md:block"></div>
-              </div>
-
-              {/* Previous Position */}
-              <div className="relative flex md:items-center">
-                <div className="flex-1 md:pr-8 hidden md:block"></div>
-
-                {/* Timeline Node */}
-                <div className="absolute left-1/2 md:left-1/2 left-8 transform md:-translate-x-1/2 -translate-x-1/2 w-6 h-6 bg-purple-400 rounded-full border-4 border-white shadow-lg z-10"></div>
-
-                <div className="flex-1 md:pl-8 pl-16 md:pl-8">
-                  <div className="bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                      <span className="text-sm font-medium text-muted-foreground">2021 - 2023</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Full Stack Developer</h3>
-                    <p className="text-purple-600 font-semibold mb-3">Digital Innovations Ltd.</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      Developed and maintained multiple client projects using modern web technologies. Collaborated with
-                      design teams to create responsive, user-friendly interfaces and robust backend systems.
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">JavaScript</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">Python</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">MongoDB</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">Docker</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Junior Position */}
-              <div className="relative flex md:items-center">
-                <div className="flex-1 md:pr-8 md:text-right pl-16 md:pl-0">
-                  <div className="bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
-                    <div className="flex items-center md:justify-end gap-3 mb-3">
-                      <span className="text-sm font-medium text-muted-foreground">2020 - 2021</span>
-                      <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Junior Web Developer</h3>
-                    <p className="text-purple-600 font-semibold mb-3">StartUp Ventures</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      Started my professional journey building responsive websites and learning modern development
-                      practices. Gained experience in version control, agile methodologies, and collaborative
-                      development.
-                    </p>
-                    <div className="flex flex-wrap gap-2 md:justify-end">
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">HTML/CSS</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">JavaScript</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">Git</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">MySQL</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Timeline Node */}
-                <div className="absolute left-1/2 md:left-1/2 left-8 transform md:-translate-x-1/2 -translate-x-1/2 w-6 h-6 bg-purple-300 rounded-full border-4 border-white shadow-lg z-10"></div>
-
-                <div className="flex-1 md:pl-8 hidden md:block"></div>
-              </div>
-
-              {/* Education/Beginning */}
-              <div className="relative flex md:items-center">
-                <div className="flex-1 md:pr-8 hidden md:block"></div>
-
-                {/* Timeline Node */}
-                <div className="absolute left-1/2 md:left-1/2 left-8 transform md:-translate-x-1/2 -translate-x-1/2 w-6 h-6 bg-purple-200 rounded-full border-4 border-white shadow-lg z-10"></div>
-
-                <div className="flex-1 md:pl-8 pl-16 md:pl-8">
-                  <div className="bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-3 h-3 bg-gray-500 rounded-full"></div>
-                      <span className="text-sm font-medium text-muted-foreground">2018 - 2020</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Computer Science Graduate</h3>
-                    <p className="text-purple-600 font-semibold mb-3">University of Technology</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      Completed Bachelor's degree in Computer Science with focus on software engineering and web
-                      technologies. Built strong foundation in programming fundamentals, data structures, and software
-                      development principles.
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">C++</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">Java</span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">
-                        Data Structures
-                      </span>
-                      <span className="px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-full">Algorithms</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Timeline Start Point */}
-            <div className="absolute bottom-0 left-1/2 md:left-1/2 left-8 transform md:-translate-x-1/2 -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full shadow-lg"></div>
+            <div className="absolute bottom-0 md:left-1/2 left-8 transform md:-translate-x-1/2 -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-[var(--portfolio-primary-500)] to-[var(--portfolio-primary-600)] rounded-full shadow-lg"></div>
           </div>
 
           {/* Call to Action */}
@@ -193,8 +156,7 @@ const Timeline = () => {
             </p>
             <a
               href="#"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-              style={{ background: "linear-gradient(135deg, #715693, #6b5b8a)" }}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl bg-[linear-gradient(135deg,_var(--portfolio-primary),_var(--portfolio-muted))]"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
