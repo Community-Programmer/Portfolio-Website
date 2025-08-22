@@ -1,5 +1,3 @@
-// types.ts or top of homeSlice.ts
-
 export interface Counter {
   label: string;
   value: string;
@@ -66,4 +64,16 @@ export type PortfolioStats = {
   passionDriven: number;    
   createdAt: string;       
   updatedAt: string;       
+};
+
+export type Timeline = {
+  id: string;
+  period: string;
+  position: string;
+  company: string;
+  description: string;
+  technologies: string[];
+  status: string;
+  statusColor: string;
+  side: string;
 };

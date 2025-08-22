@@ -1,63 +1,13 @@
+import type { RootState } from '@/store/store';
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 
-const timelineData = [
-    {
-      id: 1,
-      period: "2023 - Present",
-      position: "Senior Full Stack Developer",
-      company: "Tech Solutions Inc.",
-      description:
-        "Leading development of enterprise web applications using React, Node.js, and cloud technologies. Mentoring junior developers and architecting scalable solutions for high-traffic applications.",
-      technologies: ["React", "Node.js", "AWS", "TypeScript"],
-      status: "current",
-      nodeColor: "bg-purple-500",
-      statusColor: "bg-green-500",
-      side: "left",
-    },
-    {
-      id: 2,
-      period: "2021 - 2023",
-      position: "Full Stack Developer",
-      company: "Digital Innovations Ltd.",
-      description:
-        "Developed and maintained multiple client projects using modern web technologies. Collaborated with design teams to create responsive, user-friendly interfaces and robust backend systems.",
-      technologies: ["JavaScript", "Python", "MongoDB", "Docker"],
-      status: "completed",
-      nodeColor: "bg-purple-400",
-      statusColor: "bg-blue-500",
-      side: "right",
-    },
-    {
-      id: 3,
-      period: "2020 - 2021",
-      position: "Junior Web Developer",
-      company: "StartUp Ventures",
-      description:
-        "Started my professional journey building responsive websites and learning modern development practices. Gained experience in version control, agile methodologies, and collaborative development.",
-      technologies: ["HTML/CSS", "JavaScript", "Git", "MySQL"],
-      status: "completed",
-      nodeColor: "bg-purple-300",
-      statusColor: "bg-orange-500",
-      side: "left",
-    },
-    {
-      id: 4,
-      period: "2018 - 2020",
-      position: "Computer Science Graduate",
-      company: "University of Technology",
-      description:
-        "Completed Bachelor's degree in Computer Science with focus on software engineering and web technologies. Built strong foundation in programming fundamentals, data structures, and software development principles.",
-      technologies: ["C++", "Java", "Data Structures", "Algorithms"],
-      status: "education",
-      nodeColor: "bg-purple-200",
-      statusColor: "bg-gray-500",
-      side: "right",
-    },
-  ]
 
 
 const Timeline: React.FC = () => {
+  const { timeline } = useSelector((state: RootState) => state.home);
+
   return (
     <>
       <section className="py-20 px-4 bg-gradient-to-br from-slate-50 to-[var(--portfolio-primary-50)] relative overflow-hidden">
@@ -77,7 +27,7 @@ const Timeline: React.FC = () => {
             <div className="absolute md:left-1/2 left-8 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-[var(--portfolio-primary-500)] to-[var(--portfolio-primary-300)] rounded-full"></div>
 
             <div className="space-y-12">
-              {timelineData.map((item) => (
+              {timeline?.map((item) => (
                 <div key={item.id} className="relative flex md:items-center">
                   {/* Left side content for desktop alternating layout */}
                   <div
