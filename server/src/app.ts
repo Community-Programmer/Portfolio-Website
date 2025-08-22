@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import profileRoutes from "./Profile/profileRoutes"
 import themeRoutes from "./Theme/themeRoute";
 import skillRoutes from "./Skill/SkillRoutes";
+import projectRoutes from "./Project/ProjectRoutes";
 import globalErrorHandler from "./middleware/globalErrorHandler";
 import cors from "cors";
 
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/profile", profileRoutes);
 app.use("/api/v1/theme", themeRoutes);
 app.use("/api/v1/skills", skillRoutes);
+app.use("/api/v1/projects", projectRoutes);
 app.use(globalErrorHandler);
 
 export default app;
