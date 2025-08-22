@@ -7,6 +7,7 @@ const TechStack: React.FC = () => {
       const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
       const { techStack } = useSelector((state: RootState) => state.home);
+      const { portfolioStats } = useSelector((state: RootState) => state.home);
   return (
     <>
       <section className="py-20 px-4 bg-gradient-to-br from-slate-50 to-[var(--portfolio-primary-50)] relative overflow-hidden">
@@ -82,25 +83,25 @@ const TechStack: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             <div className="text-center p-6 bg-card rounded-2xl shadow-lg border border-border hover:border-[var(--portfolio-primary-200)] transition-colors duration-300">
               <div className="text-3xl font-bold mb-2 text-[var(--portfolio-primary)]">
-                12+
+                {portfolioStats?.technologies}+
               </div>
               <div className="text-muted-foreground font-medium">Technologies</div>
             </div>
             <div className="text-center p-6 bg-card rounded-2xl shadow-lg border border-border hover:border-[var(--portfolio-primary-200)] transition-colors duration-300">
               <div className="text-3xl font-bold mb-2 text-[var(--portfolio-primary)]">
-                50+
+                {portfolioStats?.projectsBuilt}+
               </div>
               <div className="text-muted-foreground font-medium">Projects Built</div>
             </div>
             <div className="text-center p-6 bg-card rounded-2xl shadow-lg border border-border hover:border-[var(--portfolio-primary-200)] transition-colors duration-300">
               <div className="text-3xl font-bold mb-2 text-[var(--portfolio-primary)]">
-                3+
+                {portfolioStats?.yearsExperience}+
               </div>
               <div className="text-muted-foreground font-medium">Years Experience</div>
             </div>
             <div className="text-center p-6 bg-card rounded-2xl shadow-lg border border-border hover:border-[var(--portfolio-primary-200)] transition-colors duration-300">
               <div className="text-3xl font-bold mb-2 text-[var(--portfolio-primary)]">
-                100%
+                {portfolioStats?.passionDriven}%
               </div>
               <div className="text-muted-foreground font-medium">Passion Driven</div>
             </div>

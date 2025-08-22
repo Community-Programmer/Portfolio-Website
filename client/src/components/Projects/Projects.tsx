@@ -1,74 +1,15 @@
+import type { RootState } from '@/store/store';
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 
-  const projects = [
-    {
-      id: "ecommerce",
-      title: "E-commerce Platform",
-      description:
-        "A full-stack e-commerce solution with modern UI, secure payment integration, inventory management, and admin dashboard. Built with React, Node.js, and MongoDB.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-      images: [
-        "/modern-ecommerce-interface.png",
-        "/ecommerce-product-page.png",
-        "/ecommerce-checkout.png",
-        "/ecommerce-admin-dashboard.png",
-      ],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: "task-manager",
-      title: "Task Management App",
-      description:
-        "A collaborative task management application with real-time updates, team collaboration features, and advanced project tracking capabilities.",
-      technologies: ["Next.js", "TypeScript", "PostgreSQL", "Socket.io", "Prisma"],
-      images: [
-        "/modern-task-dashboard.png",
-        "/task-management-kanban.png",
-        "/task-management-calendar.png",
-        "/task-management-collaboration.png",
-      ],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: "chat-app",
-      title: "Real-time Chat Application",
-      description:
-        "A modern chat application with real-time messaging, file sharing, group chats, and end-to-end encryption for secure communication.",
-      technologies: ["React", "Socket.io", "Express", "MongoDB", "JWT"],
-      images: [
-        "/modern-chat-app.png",
-        "/chat-app-group.png",
-        "/chat-app-file-sharing.png",
-        "/chat-app-video-call.png",
-      ],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: "analytics",
-      title: "Analytics Dashboard",
-      description:
-        "A comprehensive analytics dashboard with interactive charts, real-time data visualization, and advanced filtering capabilities for business intelligence.",
-      technologies: ["Vue.js", "D3.js", "Python", "FastAPI", "PostgreSQL"],
-      images: [
-        "/modern-analytics-dashboard.png",
-        "/analytics-dashboard.png",
-        "/analytics-dashboard-data-tables.png",
-        "/analytics-dashboard-real-time.png",
-      ],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-  ]
 
 
 const Projects: React.FC = () => {
 
-    const [currentSlides, setCurrentSlides] = useState<{ [key: string]: number }>({})
+    const [currentSlides, setCurrentSlides] = useState<{ [key: string]: number }>({});
+    const { projects } = useSelector((state: RootState) => state.home);
 
-      const nextSlide = (projectId: string, totalImages: number) => {
+    const nextSlide = (projectId: string, totalImages: number) => {
     setCurrentSlides((prev) => ({
       ...prev,
       [projectId]: ((prev[projectId] || 0) + 1) % totalImages,
@@ -100,7 +41,7 @@ const Projects: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {projects.map((project) => {
+            {projects?.map((project) => {
               const currentSlide = currentSlides[project.id] || 0
               return (
                 <div
