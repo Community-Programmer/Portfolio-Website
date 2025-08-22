@@ -5,7 +5,7 @@ import { prisma } from '../prismaClient';
 const getTheme = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const theme = await prisma.theme.findUnique({
-      where: { name: 'default' }
+      where: { name: 'Default' }
     });
 
     if (!theme) return res.status(404).json({ message: 'Theme not found' });

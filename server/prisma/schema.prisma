@@ -33,13 +33,22 @@ model HeroSection {
 }
 
 model Theme {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  name             String   @unique 
-  portfolioPrimary String  
-  portfolioAccent  String
-  portfolioMuted   String
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id                 String   @id @default(auto()) @map("_id") @db.ObjectId
+  name               String   @unique
+  portfolioPrimary    String
+  portfolioAccent     String
+  portfolioMuted      String
+  portfolioPrimary50  String
+  portfolioPrimary100 String
+  portfolioPrimary200 String
+  portfolioPrimary300 String
+  portfolioPrimary400 String
+  portfolioPrimary500 String
+  portfolioPrimary600 String
+  portfolioPrimaryLighter String
+  portfolioPrimaryLightest String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 }
 
 model Skill {
