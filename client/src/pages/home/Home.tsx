@@ -125,7 +125,7 @@ const Home: React.FC = () => {
                     </span>
                   </h1>
 
-                  <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 ">
+                  <p className="text-lg max-sm:max-w-screen sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 ">
                     {hero?.description}
                   </p>
                 </div>

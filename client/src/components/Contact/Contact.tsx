@@ -61,11 +61,11 @@ const Contact: React.FC = () => {
                   <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--portfolio-primary)]">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
-                  <div>
+                  <div  className="min-w-0">
                     <p className="text-sm text-muted-foreground">Email</p>
                     <a
                       href={`mailto:${generalDetails?.email}`}
-                      className=" font-semibold hover:opacity-80 transition-opacity text-[var(--portfolio-primary-600)]"
+                      className="font-semibold hover:opacity-80 transition-opacity text-[var(--portfolio-primary-600)] break-words"
                     >
                       {generalDetails?.email}
                     </a>
