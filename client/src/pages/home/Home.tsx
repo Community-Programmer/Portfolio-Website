@@ -15,68 +15,9 @@ import Timeline from "@/components/Timeline/Timeline";
 import Contact from "@/components/Contact/Contact";
 import type { RootState } from "@/store/store";
 import CtaButtons from "@/components/HeroSection/CtaButtons";
-import axios from "axios";
 import { useSelector } from "react-redux";
 
 const Home: React.FC = () => {
- 
-
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/theme`)
-      .then((res) => {
-        const theme = res.data;
-        const root = document.documentElement;
-
-        root.style.setProperty("--portfolio-primary", theme.portfolioPrimary);
-        root.style.setProperty("--portfolio-accent", theme.portfolioAccent);
-        root.style.setProperty("--portfolio-muted", theme.portfolioMuted);
-        root.style.setProperty(
-          "--portfolio-primary-50",
-          theme.portfolioPrimary50
-        );
-        root.style.setProperty(
-          "--portfolio-primary-100",
-          theme.portfolioPrimary100
-        );
-        root.style.setProperty(
-          "--portfolio-primary-200",
-          theme.portfolioPrimary200
-        );
-        root.style.setProperty(
-          "--portfolio-primary-300",
-          theme.portfolioPrimary300
-        );
-        root.style.setProperty(
-          "--portfolio-primary-400",
-          theme.portfolioPrimary400
-        );
-        root.style.setProperty(
-          "--portfolio-primary-500",
-          theme.portfolioPrimary500
-        );
-        root.style.setProperty(
-          "--portfolio-primary-600",
-          theme.portfolioPrimary600
-        );
-        root.style.setProperty(
-          "--portfolio-primary-700",
-          theme.portfolioPrimary700
-        );
-        root.style.setProperty(
-          "--portfolio-primary-800",
-          theme.portfolioPrimary800
-        );
-        root.style.setProperty(
-          "--portfolio-primary-900",
-          theme.portfolioPrimary900
-        );
-      })
-      .catch((err) => {
-        console.error("Failed to load theme:", err);
-      });
-  }, []);
-
   const { hero } = useSelector((state: RootState) => state.home);
 
   return (
@@ -104,9 +45,7 @@ const Home: React.FC = () => {
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left Content */}
               <div className="text-center lg:text-left space-y-8">
-                <div
-                  className="animate-fade-in-up space-y-6"
-                >
+                <div className="animate-fade-in-up space-y-6">
                   <div className="inline-flex items-center gap-2 px-4 py-2 mt-4 rounded-full bg-[var(--portfolio-primary)]/10 border border-[var(--portfolio-primary)]/20">
                     <Sparkles className="w-4 h-4 text-[var(--portfolio-primary)]" />
                     <span className="text-sm font-medium text-[var(--portfolio-primary)]">
