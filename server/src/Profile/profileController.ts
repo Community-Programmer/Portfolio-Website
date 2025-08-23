@@ -4,6 +4,7 @@ import { prisma } from '../prismaClient';
 
 const getProfile = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    await new Promise(resolve => setTimeout(resolve, 5000)); // Simulate a delay
     const generalDetails = await prisma.generalDetail.findFirst();
     const heroSection = await prisma.heroSection.findFirst();
     const skills = await prisma.skill.findMany();

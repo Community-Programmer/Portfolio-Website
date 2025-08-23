@@ -5,6 +5,6 @@ import { createTimeline, getTimeline } from "./TimelineController";
 const router = Router();
 
 router.get("/", getTimeline);
-router.post("/", createTimeline);
+// router.post("/", createTimeline);
 
 export default router;
