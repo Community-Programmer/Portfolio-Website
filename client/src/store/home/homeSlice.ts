@@ -1,13 +1,23 @@
 // state/homeSlice.js
-import type { GeneralDetail, Hero, PortfolioStats, Project, Skill, TechStack, Timeline } from "@/types/types";
+import type {
+  GeneralDetail,
+  Hero,
+  PortfolioStats,
+  Project,
+  Skill,
+  TechStack,
+  Timeline,
+} from "@/types/types";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchHomeContent = createAsyncThunk(
   "home/fetchHomeContent",
   async () => {
-    const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/profile`);
-    console.log(res.data)
+    const res = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/profile`
+    );
+    console.log(res.data);
     return res.data;
   }
 );
@@ -36,14 +46,13 @@ const initialState: HomeState = {
   error: null,
 };
 
-
 const homeSlice = createSlice({
   name: "home",
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(fetchHomeContent.pending, state => {
+      .addCase(fetchHomeContent.pending, (state) => {
         state.loading = true;
       })
       .addCase(fetchHomeContent.fulfilled, (state, action) => {
@@ -51,10 +60,10 @@ const homeSlice = createSlice({
         state.loading = false;
       })
       .addCase(fetchHomeContent.rejected, (state, action) => {
-        state.error = action.error.message ?? 'Error loading data';
+        state.error = action.error.message ?? "Error loading data";
         state.loading = false;
       });
-  }
+  },
 });
 
 export default homeSlice.reducer;

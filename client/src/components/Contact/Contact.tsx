@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../ui/button";
 import { sendMessage } from "@/api/apiService";
-import { toast } from "sonner"
+import { toast } from "sonner";
 
 const Contact: React.FC = () => {
   const { generalDetails } = useSelector((state: RootState) => state.home);
@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
                   <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--portfolio-primary)]">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
-                  <div  className="min-w-0">
+                  <div className="min-w-0">
                     <p className="text-sm text-muted-foreground">Email</p>
                     <a
                       href={`mailto:${generalDetails?.email}`}

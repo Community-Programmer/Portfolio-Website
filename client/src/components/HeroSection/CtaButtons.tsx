@@ -1,16 +1,16 @@
-import type { CTA } from '@/types/types';
-import React from 'react'
-import { Link } from 'react-router-dom';
-import { Button } from "@/components/ui/button"
-import DynamicIcon from '../DynamicIcon/DynamicIcon';
+import type { CTA } from "@/types/types";
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import DynamicIcon from "../DynamicIcon/DynamicIcon";
 
-
-
-const CtaButtons: React.FC<{ ctas: CTA[] }> = ({ ctas = [],  }) => {
+const CtaButtons: React.FC<{ ctas: CTA[] }> = ({ ctas = [] }) => {
   return (
     <div
-        className={"flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up items-center"}
-        style={{ animationDelay: "0.2s" }}
+      className={
+        "flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up items-center"
+      }
+      style={{ animationDelay: "0.2s" }}
     >
       {ctas.map((cta, index) => {
         const isPrimary = cta.variant === "primary";
@@ -32,7 +32,7 @@ const CtaButtons: React.FC<{ ctas: CTA[] }> = ({ ctas = [],  }) => {
             : "ml-2 w-5 h-5 transition-transform group-hover:translate-x-1";
 
         return (
-         <Link
+          <Link
             key={index}
             to={cta.link}
             target="_blank"
@@ -51,7 +51,7 @@ const CtaButtons: React.FC<{ ctas: CTA[] }> = ({ ctas = [],  }) => {
         );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default CtaButtons
+export default CtaButtons;

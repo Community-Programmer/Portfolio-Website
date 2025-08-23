@@ -1,25 +1,29 @@
-import type { RootState } from '@/store/store';
-import React from 'react'
-import { useSelector } from 'react-redux';
-
-
-
+import type { RootState } from "@/store/store";
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Timeline: React.FC = () => {
   const { timeline } = useSelector((state: RootState) => state.home);
 
   return (
     <>
-      <section id="timeline" className="py-20 px-4 bg-gradient-to-br from-slate-50 to-[var(--portfolio-primary-50)] relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
+      <section
+        id="timeline"
+        className="py-20 px-4 bg-gradient-to-br from-slate-50 to-[var(--portfolio-primary-50)] relative overflow-hidden"
+      >
+        <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[var(--portfolio-primary-300)] rounded-full animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-24 h-24 bg-[var(--portfolio-primary-400)] rounded-full animate-bounce"></div>
           <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-[var(--portfolio-primary-200)] rounded-full animate-ping"></div>
         </div>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4 font-serif">Career Timeline</h2>
-            <p className="text-xl text-muted-foreground">My professional journey and key milestones</p>
+            <h2 className="text-4xl font-bold text-foreground mb-4 font-serif">
+              Career Timeline
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              My professional journey and key milestones
+            </p>
           </div>
 
           <div className="relative">
@@ -36,14 +40,22 @@ const Timeline: React.FC = () => {
                     {item.side === "left" && (
                       <div className="bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
                         <div className="flex items-center md:justify-end gap-3 mb-3">
-                          <span className="text-sm font-medium text-muted-foreground">{item.period}</span>
+                          <span className="text-sm font-medium text-muted-foreground">
+                            {item.period}
+                          </span>
                           <div
                             className={`w-3 h-3 ${item.statusColor} rounded-full ${item.status === "current" ? "animate-pulse" : ""}`}
                           ></div>
                         </div>
-                        <h3 className="text-xl font-bold text-foreground mb-2">{item.position}</h3>
-                        <p className="text-[var(--portfolio-primary-600)] font-semibold mb-3">{item.company}</p>
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.description}</p>
+                        <h3 className="text-xl font-bold text-foreground mb-2">
+                          {item.position}
+                        </h3>
+                        <p className="text-[var(--portfolio-primary-600)] font-semibold mb-3">
+                          {item.company}
+                        </p>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                          {item.description}
+                        </p>
                         <div className="flex flex-wrap gap-2 md:justify-end">
                           {item.technologies.map((tech, techIndex) => (
                             <span
@@ -73,11 +85,19 @@ const Timeline: React.FC = () => {
                           <div
                             className={`w-3 h-3 ${item.statusColor} rounded-full ${item.status === "current" ? "animate-pulse" : ""}`}
                           ></div>
-                          <span className="text-sm font-medium text-muted-foreground">{item.period}</span>
+                          <span className="text-sm font-medium text-muted-foreground">
+                            {item.period}
+                          </span>
                         </div>
-                        <h3 className="text-xl font-bold text-foreground mb-2">{item.position}</h3>
-                        <p className="text-[var(--portfolio-primary-600)] font-semibold mb-3">{item.company}</p>
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.description}</p>
+                        <h3 className="text-xl font-bold text-foreground mb-2">
+                          {item.position}
+                        </h3>
+                        <p className="text-[var(--portfolio-primary-600)] font-semibold mb-3">
+                          {item.company}
+                        </p>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                          {item.description}
+                        </p>
                         <div className="flex flex-wrap gap-2">
                           {item.technologies.map((tech, techIndex) => (
                             <span
@@ -102,13 +122,19 @@ const Timeline: React.FC = () => {
           {/* Call to Action */}
           <div className="text-center mt-16">
             <p className="text-lg text-muted-foreground mb-6">
-              Ready to be part of my next chapter? Let's build something amazing together.
+              Ready to be part of my next chapter? Let's build something amazing
+              together.
             </p>
             <a
               href="#"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl bg-[linear-gradient(135deg,_var(--portfolio-primary),_var(--portfolio-muted))]"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -122,7 +148,7 @@ const Timeline: React.FC = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;

@@ -1,30 +1,32 @@
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Menu, X, Github, Linkedin, Mail } from "lucide-react"
-import { Link } from "react-router-dom"
-import { useSelector } from "react-redux"
-import type { RootState } from "@/store/store"
-
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store/store";
 
 const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
-    { name: "Timeline", href: "#timeline" }
-]
+  { name: "Home", href: "#home" },
+  { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
+  { name: "Contact", href: "#contact" },
+  { name: "Timeline", href: "#timeline" },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { generalDetails } = useSelector((state: RootState) => state.home);
 
   return (
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="#home" className="font-serif text-xl font-bold text-[var(--portfolio-primary)]">
+            <Link
+              to="#home"
+              className="font-serif text-xl font-bold text-[var(--portfolio-primary)]"
+            >
               Sarthak Patel
             </Link>
           </div>
@@ -63,13 +65,13 @@ const Navbar = () => {
               <Linkedin className="w-5 h-5" />
             </Link>
             <Link to={`mailto:${generalDetails?.email}`}>
-            <Button
-              size="sm"
-              className="bg-[var(--portfolio-primary)] hover:bg-[var(--portfolio-accent)] text-white px-4 py-2 text-sm font-medium transition-all duration-300 cursor cursor-pointer"
-            >
-              <Mail className="w-4 h-4 mr-2" />
-              Hire Me
-            </Button>
+              <Button
+                size="sm"
+                className="bg-[var(--portfolio-primary)] hover:bg-[var(--portfolio-accent)] text-white px-4 py-2 text-sm font-medium transition-all duration-300 cursor cursor-pointer"
+              >
+                <Mail className="w-4 h-4 mr-2" />
+                Hire Me
+              </Button>
             </Link>
           </div>
 
@@ -79,7 +81,11 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-[var(--portfolio-primary)] p-2"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -128,7 +134,7 @@ const Navbar = () => {
         )}
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

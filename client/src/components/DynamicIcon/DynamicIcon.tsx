@@ -7,7 +7,9 @@ interface DynamicIconProps {
 }
 
 const DynamicIcon = ({ iconName, className }: DynamicIconProps) => {
-  const [Icon, setIcon] = useState<ComponentType<{ className?: string }> | null>(null);
+  const [Icon, setIcon] = useState<ComponentType<{
+    className?: string;
+  }> | null>(null);
 
   useEffect(() => {
     let isMounted = true;
