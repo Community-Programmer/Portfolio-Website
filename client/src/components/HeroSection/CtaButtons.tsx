@@ -9,7 +9,7 @@ import DynamicIcon from '../DynamicIcon/DynamicIcon';
 const CtaButtons: React.FC<{ ctas: CTA[] }> = ({ ctas = [],  }) => {
   return (
     <div
-        className={"flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up"}
+        className={"flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up items-center"}
         style={{ animationDelay: "0.2s" }}
     >
       {ctas.map((cta, index) => {

@@ -6,7 +6,7 @@ import axios from "axios";
 export const fetchHomeContent = createAsyncThunk(
   "home/fetchHomeContent",
   async () => {
-    const res = await axios.get("http://127.0.0.1:3000/api/v1/profile");
+    const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/profile`);
     console.log(res.data)
     return res.data;
   }

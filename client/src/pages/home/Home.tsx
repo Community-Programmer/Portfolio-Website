@@ -1,54 +1,90 @@
-import React, { useEffect, useState } from 'react'
-import { Sparkles, Code, Terminal, Cpu, Database, Globe, Zap} from "lucide-react"
-import SkillCard from '@/components/Skills/SkillCard'
-import TechStack from '@/components/Techstak/TechStack'
-import Projects from '@/components/Projects/Projects'
-import Timeline from '@/components/Timeline/Timeline'
-import Contact from '@/components/Contact/Contact'
-import { fetchHomeContent } from '@/store/home/homeSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import type { AppDispatch, RootState } from '@/store/store'
-import CtaButtons from '@/components/HeroSection/CtaButtons'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import {
+  Sparkles,
+  Code,
+  Terminal,
+  Cpu,
+  Database,
+  Globe,
+  Zap,
+} from "lucide-react";
+import SkillCard from "@/components/Skills/SkillCard";
+import TechStack from "@/components/Techstak/TechStack";
+import Projects from "@/components/Projects/Projects";
+import Timeline from "@/components/Timeline/Timeline";
+import Contact from "@/components/Contact/Contact";
+import { fetchHomeContent } from "@/store/home/homeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "@/store/store";
+import CtaButtons from "@/components/HeroSection/CtaButtons";
+import axios from "axios";
 
 const Home: React.FC = () => {
-    const [isLoaded, setIsLoaded] = useState<boolean>(false)
-    const dispatch = useDispatch<AppDispatch>();
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(fetchHomeContent());
     setIsLoaded(true);
-  }, [])
-  
-useEffect(() => {
-  axios.get('http://127.0.0.1:3000/api/v1/theme')
-    .then((res) => {
-      const theme = res.data;
-      const root = document.documentElement;
+  }, []);
 
-      root.style.setProperty('--portfolio-primary', theme.portfolioPrimary);
-      root.style.setProperty('--portfolio-accent', theme.portfolioAccent);
-      root.style.setProperty('--portfolio-muted', theme.portfolioMuted);
-      root.style.setProperty('--portfolio-primary-50', theme.portfolioPrimary50);
-      root.style.setProperty('--portfolio-primary-100', theme.portfolioPrimary100);
-      root.style.setProperty('--portfolio-primary-200', theme.portfolioPrimary200);
-      root.style.setProperty('--portfolio-primary-300', theme.portfolioPrimary300);
-      root.style.setProperty('--portfolio-primary-400', theme.portfolioPrimary400);
-      root.style.setProperty('--portfolio-primary-500', theme.portfolioPrimary500);
-      root.style.setProperty('--portfolio-primary-600', theme.portfolioPrimary600);
-      root.style.setProperty('--portfolio-primary-lighter', theme.portfolioPrimaryLighter);
-      root.style.setProperty('--portfolio-primary-lightest', theme.portfolioPrimaryLightest);
-    })
-    .catch((err) => {
-      console.error('Failed to load theme:', err);
-    });
-}, []);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/theme`)
+      .then((res) => {
+        const theme = res.data;
+        const root = document.documentElement;
+
+        root.style.setProperty("--portfolio-primary", theme.portfolioPrimary);
+        root.style.setProperty("--portfolio-accent", theme.portfolioAccent);
+        root.style.setProperty("--portfolio-muted", theme.portfolioMuted);
+        root.style.setProperty(
+          "--portfolio-primary-50",
+          theme.portfolioPrimary50
+        );
+        root.style.setProperty(
+          "--portfolio-primary-100",
+          theme.portfolioPrimary100
+        );
+        root.style.setProperty(
+          "--portfolio-primary-200",
+          theme.portfolioPrimary200
+        );
+        root.style.setProperty(
+          "--portfolio-primary-300",
+          theme.portfolioPrimary300
+        );
+        root.style.setProperty(
+          "--portfolio-primary-400",
+          theme.portfolioPrimary400
+        );
+        root.style.setProperty(
+          "--portfolio-primary-500",
+          theme.portfolioPrimary500
+        );
+        root.style.setProperty(
+          "--portfolio-primary-600",
+          theme.portfolioPrimary600
+        );
+        root.style.setProperty(
+          "--portfolio-primary-lighter",
+          theme.portfolioPrimaryLighter
+        );
+        root.style.setProperty(
+          "--portfolio-primary-lightest",
+          theme.portfolioPrimaryLightest
+        );
+      })
+      .catch((err) => {
+        console.error("Failed to load theme:", err);
+      });
+  }, []);
 
   const { hero } = useSelector((state: RootState) => state.home);
-  
+
   return (
     <>
-    <main
+      <main
         id="home"
         className="min-h-screen bg-gradient-to-br from-slate-50 to-[var(--portfolio-primary-50)]  relative overflow-hidden"
       >
@@ -71,8 +107,10 @@ useEffect(() => {
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left Content */}
               <div className="text-center lg:text-left space-y-8">
-                <div className={`space-y-6 ${isLoaded ? "animate-fade-in-up" : "opacity-0"}`}>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--portfolio-primary)]/10 border border-[var(--portfolio-primary)]/20">
+                <div
+                  className={`space-y-6 ${isLoaded ? "animate-fade-in-up" : "opacity-0"}`}
+                >
+                  <div className="inline-flex items-center gap-2 px-4 py-2 mt-4 rounded-full bg-[var(--portfolio-primary)]/10 border border-[var(--portfolio-primary)]/20">
                     <Sparkles className="w-4 h-4 text-[var(--portfolio-primary)]" />
                     <span className="text-sm font-medium text-[var(--portfolio-primary)]">
                       {hero?.tagline}
@@ -82,24 +120,33 @@ useEffect(() => {
                   <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                     <span className="text-gray-900">{hero?.introText}</span>
                     <br />
-                    <span className="text-[var(--portfolio-primary)]">{hero?.name}</span>
+                    <span className="text-[var(--portfolio-primary)]">
+                      {hero?.name}
+                    </span>
                   </h1>
 
-                  <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                  <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 ">
                     {hero?.description}
                   </p>
                 </div>
 
                 <CtaButtons ctas={hero?.ctas || []} />
- 
+
                 <div
                   className={`flex flex-wrap gap-8 justify-center lg:justify-start pt-8 ${isLoaded ? "animate-fade-in-up" : "opacity-0"}`}
                   style={{ animationDelay: "0.4s" }}
                 >
                   {hero?.counters.map((counter) => (
-                    <div className="text-center lg:text-left" key={counter.label}>
-                      <div className="text-2xl font-bold text-[var(--portfolio-primary)]">{counter.value}</div>
-                      <div className="text-sm text-gray-600">{counter.label}</div>
+                    <div
+                      className="text-center lg:text-left"
+                      key={counter.label}
+                    >
+                      <div className="text-2xl font-bold text-[var(--portfolio-primary)]">
+                        {counter.value}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {counter.label}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -156,7 +203,10 @@ useEffect(() => {
                   </div>
 
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96">
-                    <svg className="w-full h-full opacity-15" viewBox="0 0 384 384">
+                    <svg
+                      className="w-full h-full opacity-15"
+                      viewBox="0 0 384 384"
+                    >
                       <circle
                         cx="192"
                         cy="192"
@@ -212,14 +262,13 @@ useEffect(() => {
         </div>
       </main>
 
-      <SkillCard/>
-      <TechStack/>
-      <Projects/>
-      <Timeline/>
-      <Contact/>
+      <SkillCard />
+      <TechStack />
+      <Projects />
+      <Timeline />
+      <Contact />
+    </>
+  );
+};
 
-      </>
-  )
-}
-
-export default Home
+export default Home;
