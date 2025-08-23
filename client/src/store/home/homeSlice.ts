@@ -1,5 +1,5 @@
 // state/homeSlice.js
-import type { Hero, PortfolioStats, Project, Skill, TechStack, Timeline } from "@/types/types";
+import type { GeneralDetail, Hero, PortfolioStats, Project, Skill, TechStack, Timeline } from "@/types/types";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -13,6 +13,7 @@ export const fetchHomeContent = createAsyncThunk(
 );
 
 interface HomeState {
+  generalDetails: GeneralDetail | null;
   hero: Hero | null;
   skills: Skill[] | null;
   projects: Project[] | null;
@@ -24,6 +25,7 @@ interface HomeState {
 }
 
 const initialState: HomeState = {
+  generalDetails: null,
   hero: null,
   skills: null,
   projects: null,

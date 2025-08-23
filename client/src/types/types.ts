@@ -76,4 +76,21 @@ export type Timeline = {
   status: string;
   statusColor: string;
   side: string;
+  createdAt: string;       
+  updatedAt: string;       
 };
+
+export type GeneralDetail = {
+  id: string;
+  fullName: string;
+  email: string;
+  phoneNumber?: string;
+  location?: string;
+  resumeLink?: string;
+  profileImage?: string;
+  socialLinks?: {
+    [platform: string]: string;
+  };
+  createdAt: string;
+  updatedAt: string; 
+}

@@ -10,7 +10,7 @@ const Timeline: React.FC = () => {
 
   return (
     <>
-      <section className="py-20 px-4 bg-gradient-to-br from-slate-50 to-[var(--portfolio-primary-50)] relative overflow-hidden">
+      <section id="timeline" className="py-20 px-4 bg-gradient-to-br from-slate-50 to-[var(--portfolio-primary-50)] relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[var(--portfolio-primary-300)] rounded-full animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-24 h-24 bg-[var(--portfolio-primary-400)] rounded-full animate-bounce"></div>

@@ -49,8 +49,9 @@
   --portfolio-primary-400: #D6BCFF;
   --portfolio-primary-500: #C9A3FF;
   --portfolio-primary-600: #A77BFF;
-  --portfolio-primary-lighter: #f3e8ff4d;
-  --portfolio-primary-lightest: #e9e0ff80;
+  --portfolio-primary-700: #8B5BFF;
+  --portfolio-primary-800: #7A4FFF;
+  --portfolio-primary-900: #6B3FFF;
 }
 
 .dark {

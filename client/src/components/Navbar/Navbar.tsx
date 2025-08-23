@@ -2,18 +2,21 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react"
 import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+import type { RootState } from "@/store/store"
 
 
 const navItems = [
     { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
     { name: "Contact", href: "#contact" },
+    { name: "Timeline", href: "#timeline" }
 ]
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { generalDetails } = useSelector((state: RootState) => state.home);
 
   return (
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50">
@@ -30,13 +33,13 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.name}
-                  to={item.href}
+                  href={item.href}
                   className="text-gray-700 hover:text-[var(--portfolio-primary)] px-3 py-2 text-sm font-medium transition-colors duration-200"
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -44,7 +47,7 @@ const Navbar = () => {
           {/* Social Links & CTA */}
           <div className="hidden md:flex items-center space-x-4">
             <Link
-              to="https://github.com"
+              to={generalDetails?.socialLinks?.github as string}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-[var(--portfolio-primary)] transition-colors duration-200"
@@ -52,20 +55,22 @@ const Navbar = () => {
               <Github className="w-5 h-5" />
             </Link>
             <Link
-              to="https://linkedin.com"
+              to={generalDetails?.socialLinks?.linkedin as string}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-[var(--portfolio-primary)] transition-colors duration-200"
             >
               <Linkedin className="w-5 h-5" />
             </Link>
+            <Link to={`mailto:${generalDetails?.email}`}>
             <Button
               size="sm"
-              className="bg-[var(--portfolio-primary)] hover:bg-[var(--portfolio-accent)] text-white px-4 py-2 text-sm font-medium transition-all duration-300"
+              className="bg-[var(--portfolio-primary)] hover:bg-[var(--portfolio-accent)] text-white px-4 py-2 text-sm font-medium transition-all duration-300 cursor cursor-pointer"
             >
               <Mail className="w-4 h-4 mr-2" />
               Hire Me
             </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
