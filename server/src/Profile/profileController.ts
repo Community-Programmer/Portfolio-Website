@@ -9,8 +9,8 @@ const getProfile = async (req: Request, res: Response, next: NextFunction) => {
     const skills = await prisma.skill.findMany();
     const techStack = await prisma.techStack.findMany();
     const portfolioStats = await prisma.portfolioStats.findFirst();
-    const projects = await prisma.project.findMany();
-    const timeline = await prisma.timeline.findMany();
+    const projects = await prisma.project.findMany({ orderBy: { createdAt: "desc" } });
+    const timeline = await prisma.timeline.findMany({ orderBy: { createdAt: "desc" } });
     res.status(200).json({ generalDetails, hero: heroSection, skills, techStack, portfolioStats, projects, timeline });
   } catch (error) {
     return next(createHttpError(500, 'Error while processing your request'));
