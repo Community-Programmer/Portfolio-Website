@@ -5,6 +5,7 @@ import themeRoutes from "./Theme/themeRoute";
 import skillRoutes from "./Skill/SkillRoutes";
 import projectRoutes from "./Project/ProjectRoutes";
 import timelineRoutes from "./Timeline/TimelineRoutes";
+import contactRoutes from "./Contact/ContactRoutes";
 import globalErrorHandler from "./middleware/globalErrorHandler";
 import cors from "cors";
 
@@ -12,7 +13,7 @@ config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -24,6 +25,7 @@ app.use("/api/v1/theme", themeRoutes);
 app.use("/api/v1/skills", skillRoutes);
 app.use("/api/v1/projects", projectRoutes);
 app.use("/api/v1/timeline", timelineRoutes);
+app.use("/api/v1/contact", contactRoutes);
 app.use(globalErrorHandler);
 
 export default app;
