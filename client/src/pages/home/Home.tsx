@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   Sparkles,
   Code,
@@ -13,20 +13,13 @@ import TechStack from "@/components/Techstak/TechStack";
 import Projects from "@/components/Projects/Projects";
 import Timeline from "@/components/Timeline/Timeline";
 import Contact from "@/components/Contact/Contact";
-import { fetchHomeContent } from "@/store/home/homeSlice";
-import { useDispatch, useSelector } from "react-redux";
-import type { AppDispatch, RootState } from "@/store/store";
+import type { RootState } from "@/store/store";
 import CtaButtons from "@/components/HeroSection/CtaButtons";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Home: React.FC = () => {
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const dispatch = useDispatch<AppDispatch>();
-
-  useEffect(() => {
-    dispatch(fetchHomeContent());
-    setIsLoaded(true);
-  }, []);
+ 
 
   useEffect(() => {
     axios
@@ -67,12 +60,16 @@ const Home: React.FC = () => {
           theme.portfolioPrimary600
         );
         root.style.setProperty(
-          "--portfolio-primary-lighter",
-          theme.portfolioPrimaryLighter
+          "--portfolio-primary-700",
+          theme.portfolioPrimary700
         );
         root.style.setProperty(
-          "--portfolio-primary-lightest",
-          theme.portfolioPrimaryLightest
+          "--portfolio-primary-800",
+          theme.portfolioPrimary800
+        );
+        root.style.setProperty(
+          "--portfolio-primary-900",
+          theme.portfolioPrimary900
         );
       })
       .catch((err) => {
@@ -108,7 +105,7 @@ const Home: React.FC = () => {
               {/* Left Content */}
               <div className="text-center lg:text-left space-y-8">
                 <div
-                  className={`space-y-6 ${isLoaded ? "animate-fade-in-up" : "opacity-0"}`}
+                  className="animate-fade-in-up space-y-6"
                 >
                   <div className="inline-flex items-center gap-2 px-4 py-2 mt-4 rounded-full bg-[var(--portfolio-primary)]/10 border border-[var(--portfolio-primary)]/20">
                     <Sparkles className="w-4 h-4 text-[var(--portfolio-primary)]" />
@@ -133,7 +130,7 @@ const Home: React.FC = () => {
                 <CtaButtons ctas={hero?.ctas || []} />
 
                 <div
-                  className={`flex flex-wrap gap-8 justify-center lg:justify-start pt-8 ${isLoaded ? "animate-fade-in-up" : "opacity-0"}`}
+                  className="flex flex-wrap gap-8 justify-center lg:justify-start pt-8 animate-fade-in-up"
                   style={{ animationDelay: "0.4s" }}
                 >
                   {hero?.counters.map((counter) => (
@@ -154,7 +151,7 @@ const Home: React.FC = () => {
 
               {/* Right Visual - Tech Elements with User Image */}
               <div
-                className={`relative ${isLoaded ? "animate-fade-in-up" : "opacity-0"}`}
+                className="relative animate-fade-in-up"
                 style={{ animationDelay: "0.3s" }}
               >
                 <div className="relative w-[500px] h-[500px] mx-auto">

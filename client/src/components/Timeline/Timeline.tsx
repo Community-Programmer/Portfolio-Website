@@ -120,14 +120,15 @@ const Timeline: React.FC = () => {
           </div>
 
           {/* Call to Action */}
+          
           <div className="text-center mt-16">
             <p className="text-lg text-muted-foreground mb-6">
               Ready to be part of my next chapter? Let's build something amazing
               together.
             </p>
             <a
-              href="#"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl bg-[linear-gradient(135deg,_var(--portfolio-primary),_var(--portfolio-muted))]"
+              href="#contact"
+              className="relative z-10 inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl bg-[linear-gradient(135deg,_var(--portfolio-primary),_var(--portfolio-muted))]"
             >
               <svg
                 className="w-5 h-5"

@@ -35,8 +35,7 @@ const CtaButtons: React.FC<{ ctas: CTA[] }> = ({ ctas = [] }) => {
           <Link
             key={index}
             to={cta.link}
-            target="_blank"
-            rel="noopener noreferrer"
+           
           >
             <Button className={buttonClass} size="lg">
               {cta.icon && cta.iconPosition === "left" && (

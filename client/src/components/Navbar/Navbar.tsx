@@ -6,11 +6,11 @@ import { useSelector } from "react-redux";
 import type { RootState } from "@/store/store";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "Contact", href: "#contact" },
-  { name: "Timeline", href: "#timeline" },
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "Skills", href: "/skills" },
+  { name: "Contact", href: "/contact" },
+  { name: "Timeline", href: "/timeline" },
 ];
 
 const Navbar = () => {
@@ -23,25 +23,25 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link
-              to="#home"
+            <a
+              href="#home"
               className="font-serif text-xl font-bold text-[var(--portfolio-primary)]"
             >
               Sarthak Patel
-            </Link>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-gray-700 hover:text-[var(--portfolio-primary)] px-3 py-2 text-sm font-medium transition-colors duration-200"
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

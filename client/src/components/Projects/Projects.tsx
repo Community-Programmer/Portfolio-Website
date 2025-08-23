@@ -1,6 +1,7 @@
 import type { RootState } from "@/store/store";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Projects: React.FC = () => {
   const [currentSlides, setCurrentSlides] = useState<{ [key: string]: number }>(
@@ -187,8 +188,8 @@ const Projects: React.FC = () => {
             Want to see more of my work? Check out my complete portfolio on
             GitHub.
           </p>
-          <a
-            href="#"
+          <Link
+            to="/projects"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-lg text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl bg-[linear-gradient(135deg,_var(--portfolio-primary),_var(--portfolio-muted))]"
           >
             <span>View All Projects</span>
@@ -205,7 +206,7 @@ const Projects: React.FC = () => {
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

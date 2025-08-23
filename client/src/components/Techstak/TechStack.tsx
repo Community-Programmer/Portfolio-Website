@@ -127,9 +127,11 @@ const TechStack: React.FC = () => {
             <p className="text-lg text-muted-foreground mb-6">
               Each tool is a vital piece of my coding journey
             </p>
+            <a href="#contact">
             <button className="text-white px-8 py-4 rounded-full font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl bg-[linear-gradient(135deg,_var(--portfolio-primary),_var(--portfolio-muted))]">
               Let's Build Something Amazing
             </button>
+            </a>
           </div>
         </div>
       </section>
