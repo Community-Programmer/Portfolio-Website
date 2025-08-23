@@ -1,7 +1,8 @@
+import { BACKEND_URL } from "@/config/config";
 import type { ContactFormSchema } from "@/validation/contactSchema";
 import axios from "axios";
 
-const BASE_URL = `${import.meta.env.VITE_BACKEND_URL}/api/v1`;
+const BASE_URL = `${BACKEND_URL}/api/v1`;
 
 const apiClient = axios.create({
   baseURL: BASE_URL,

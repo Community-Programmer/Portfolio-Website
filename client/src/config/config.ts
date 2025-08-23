@@ -1,0 +1,1 @@
+export const BACKEND_URL = "https://portfolio-website-74j6.onrender.com";

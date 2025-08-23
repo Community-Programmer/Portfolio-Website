@@ -1,4 +1,5 @@
 // state/homeSlice.js
+import { BACKEND_URL } from "@/config/config";
 import type {
   GeneralDetail,
   Hero,
@@ -15,7 +16,7 @@ export const fetchHomeContent = createAsyncThunk(
   "home/fetchHomeContent",
   async () => {
     const res = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}/api/v1/profile`
+      `${BACKEND_URL}/api/v1/profile`
     );
     console.log(res.data);
     return res.data;

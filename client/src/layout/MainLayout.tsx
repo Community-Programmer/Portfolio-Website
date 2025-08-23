@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer/Footer";
 import Loader from "@/components/Loader/Loader";
 import Navbar from "@/components/Navbar/Navbar";
+import { BACKEND_URL } from "@/config/config";
 import { fetchHomeContent } from "@/store/home/homeSlice";
 import type { AppDispatch, RootState } from "@/store/store";
 import axios from "axios";
@@ -14,7 +15,7 @@ const MainLayout = () => {
 
     useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/theme`)
+      .get(`${BACKEND_URL}/api/v1/theme`)
       .then((res) => {
         const theme = res.data;
         const root = document.documentElement;
